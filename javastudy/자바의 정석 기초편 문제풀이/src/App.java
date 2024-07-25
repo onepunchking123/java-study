@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
@@ -111,7 +112,7 @@ public class App {
     }    
     System.out.println(sum);
     
-
+    // 자바의 정석 5-5 풀이
     int[][] arr ={
         {5,5,5,5,5},
         {10,10,10,10,10},
@@ -132,7 +133,61 @@ public class App {
     average= (total+0.0f)/cnt;
     System.out.println(total);
     System.out.println(average);
-    */
+    
 
-    }   
+     int[] ballArr = {1,2,3,4,5,6,7,8,9};
+     int[] ball3= new int[3];
+    
+     //1. 배열 요소 변경
+     for(int i=0;i<ballArr.length;i++)
+     {
+        int j= (int)(Math.random()*ballArr.length);
+        int tmp=0;
+        
+        tmp=ballArr[i];
+        ballArr[i]=ballArr[j];
+        ballArr[j]=tmp;
+
+     }
+
+     //2.배열 ballArr의 앞에서 3개의 수를 배열 ball3으로 복사
+     ball3=Arrays.copyOfRange(ballArr, 0, 3);
+
+     for(int i=0;i<ball3.length;i++)
+     {
+        System.out.print(ball3[i]);
+     }
+
+     
+    //자바의 정석 5-6 
+    String[] words = {"television","computer","mouse","phone"};
+
+    Scanner sc =new Scanner(System.in);
+
+    for(int i=0; i<words.length;i++)
+    {
+        char[] question = words[i].toCharArray();
+
+        for(int j=0;j<question.length;j++)
+        {   
+            int k= (int)(Math.random()*question.length);
+            char tmp= question[j];
+            question[j]=question[k];
+            question[k]=tmp; 
+        }
+
+        System.out.printf("Q%d. %s의 정답을 입력하세요.>",i+1,new String(question));
+        String answer = sc.nextLine();
+        
+        if(words[i].equals(answer.trim()))
+        {
+            System.out.println("맞았습니다.\n\n");
+        }
+        else{
+            System.out.println("틀렸습니다.\n\n");
+        }
+
+    }
+    */
+    }
 }
